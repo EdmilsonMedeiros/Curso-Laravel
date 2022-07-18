@@ -1,5 +1,5 @@
 <?php
-
+$teste = 10;
 namespace App\Http\Controllers;
 //Teste de branch_de_teste
 use Illuminate\Http\Request;

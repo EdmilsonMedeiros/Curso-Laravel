@@ -1,45 +1,15 @@
-<h3>Fornecedor</h3>
-
-@php
-    /*
-    if(empty($variavel)) {} //retornar true se a variável estiver vazia
-    - ''
-    - 0
-    - 0.0
-    - '0'
-    - null
-    - false
-    - array()
-    - $var
-    */
-@endphp
-
-@isset($fornecedores)
-
-    @forelse($fornecedores as $indice => $fornecedor)
-        Iteração atual: {{ $loop->iteration }}
-        <br>
-        Fornecedor: {{ $fornecedor['nome'] }}
-        <br>
-        Status: {{ $fornecedor['status'] }}
-        <br>
-        CNPJ: {{ $fornecedor['cnpj'] ?? '' }}
-        <br>
-        Telefone: ({{ $fornecedor['ddd'] ?? '' }}) {{ $fornecedor['telefone'] ?? '' }}
-        <br>
-        @if($loop->first)
-            Primeira iteração no loop
-
-            <br>
-            Total de registros: {{ $loop->count }}
-        @endif
-
-        @if($loop->last)
-            Última iteração no loop
-        @endif
-        <hr>
-    @empty
-        Não existem fornecedores cadastrados!!!
-    @endforelse
-@endisset
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fornecedor</title>
+</head>
+<body>
+    <h1>Fornecedor</h1>
+    @if (count($fornecedores) > 0 && count($fornecedores) < 10)
+        <h3>Existem fornecedores cadastrados</h3>
+    @endif
+</body>
+</html>

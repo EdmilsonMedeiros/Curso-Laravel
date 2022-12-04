@@ -4,8 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Fornecedor;
-
+use App\Models\Fornecedor;
 class FornecedorSeeder extends Seeder
 {
     /**
@@ -15,20 +14,20 @@ class FornecedorSeeder extends Seeder
      */
     public function run()
     {
-        //Instância do objeto
-        $fornecedor = new Fornecedor();
-        $fornecedor -> nome     = "Fornecedor 100";
-        $fornecedor -> site     = "fornecedor100.com.br";
-        $fornecedor -> uf       = "CE";
-        $fornecedor -> email    = "contato@fornecedor100.com.br";
-        $fornecedor -> save();
-        //metodo create de acordo com o atrributo fillable da classe Fornecedor
+        $fornecedor         = new Fornecedor();
+        $fornecedor->nome   = 'Fornecedor 100';
+        $fornecedor->site   = 'fornecedor100.com.br';
+        $fornecedor->uf     = 'CE';
+        $fornecedor->email  = 'contato@fornecedor100.com.br';
+        $fornecedor->save();
+
         Fornecedor::create([
             'nome'  => 'Fornecedor 200',
             'site'  => 'fornecedor200.com.br',
             'uf'    => 'RS',
             'email' => 'contato@fornecedor200.com.br'
         ]);
+
         Fornecedor::create([
             'nome'  => 'Fornecedor 300',
             'site'  => 'fornecedor300.com.br',
@@ -36,5 +35,11 @@ class FornecedorSeeder extends Seeder
             'email' => 'contato@fornecedor300.com.br'
         ]);
 
+        // DB::table('fornecedores')->insert([
+        //     'nome'  => 'Fornecedor 300',
+        //     'site'  => 'fornecedor300.com.br',
+        //     'uf'    => 'SP',
+        //     'email' => 'contato@fornecedor300.com.br' 
+        // ]);
     }
 }

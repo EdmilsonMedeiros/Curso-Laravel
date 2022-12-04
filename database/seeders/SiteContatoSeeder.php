@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use Database\Factories\SiteContatoFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use HasFactory;
 use Illuminate\Database\Seeder;
-use App\SiteContato;
+use App\Models\SiteContato;
 
 class SiteContatoSeeder extends Seeder
 {
@@ -17,18 +15,14 @@ class SiteContatoSeeder extends Seeder
      */
     public function run()
     {
-        SiteContato::factory()->count(100)->create();
+        // $contato = new SiteContato();
+        // $contato->nome = 'Sistema SG';
+        // $contato->telefone = '(11) 99999-8888';
+        // $contato->email = 'contato@sg.com.br';
+        // $contato->motivo_contato = 1;
+        // $contato->mensagem = 'Seja bem vindo ao SG';
+        // $contato->save();
 
-//        factory(SiteContatoFactory::class, '100')->create();
-        /*
-        $contato = new SiteContato();
-        $contato -> nome = "Sistema SG";
-        $contato -> telefone = "(11)9999-8888";
-        $contato -> email = "contato@sg.com.br";
-        $contato -> motivo_contato = 1;
-        $contato -> nome = "Sistema SG";
-        $contato -> mensagem = "Bem vindo ao Sistema";
-        $contato -> save();
-        */
+        SiteContato::factory()->count(100)->create();
     }
 }

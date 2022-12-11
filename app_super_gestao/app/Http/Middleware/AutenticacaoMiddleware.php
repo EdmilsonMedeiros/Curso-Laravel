@@ -16,29 +16,11 @@ class AutenticacaoMiddleware
      */
     public function handle(Request $request, Closure $next, $metodo_autenticacao, $perfil)
     {   
-        echo $metodo_autenticacao . ' - ' . $perfil . '<br>';
-
-        if($metodo_autenticacao == 'padrao'){
-            echo "Verifica no banco de dados." . ' - ' . $perfil . '<br>';
-        }
-
-        if($metodo_autenticacao == 'ldap'){
-            echo "Verifica no AD." . ' - ' . $perfil . '<br>';
-        }
-
-        if ($perfil == 'visitante'){
-            echo 'Exibir apenas alguns recursos <br>';
-        }else{
-            echo 'Carregar o perfíl do banco de dados <br>';
-        }
-
-        if(false){
+        session_start();
+        if(isset($_SESSION['email']) && $_SESSION['email'] != ''){
             return $next($request);
         }else{
-            return Response('Acesso negado!');
+            return redirect()->route('site.login', ['erro' => 2]);
         }
-        //return $next($request);
-        
-        return Response('Acesso negado!');
     }
 }
